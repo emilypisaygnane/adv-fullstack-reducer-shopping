@@ -5,10 +5,11 @@ export default function ShoppingListForm({
 }) {
   return <form onSubmit={(e) => {
     e.preventDefault();
-    onSubmit();
+    onSubmit(body);
   }}>
     <textarea value={body} onChange={(e) => {
       onBodyChanged(e.target.value);
     }}/>
+    <button type="submit">Add To List</button>
   </form>;
 }
