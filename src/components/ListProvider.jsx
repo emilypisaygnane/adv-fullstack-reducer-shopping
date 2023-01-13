@@ -1,6 +1,12 @@
-import { createContext, useReducer } from 'react';
-import { initialState, reducer } from '../reducers/shopping-list-item-reducer';
-import { reduceLogger } from '../reducers/reduce-logger';
+import { 
+  createContext, 
+  useReducer 
+} from 'react';
+import { 
+  initialState, 
+  reducer 
+} from '../reducers/shopping-list-item-reducer.js';
+import { reducerLogger } from '../reducers/reducer-logger.js';
 
 export const Context = createContext({
   state: initialState(),
@@ -9,7 +15,7 @@ export const Context = createContext({
 
 export const ListProvider = ({ children }) => {
   const [state, dispatch] = useReducer(
-    reduceLogger(reducer),
+    reducerLogger(reducer),
     initialState(),
   );
   const contextObj = { state, dispatch };

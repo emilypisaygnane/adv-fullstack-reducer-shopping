@@ -1,4 +1,4 @@
-export const initalState = () => {
+export const initialState = () => {
   return {
     loadingMode: 'at-rest',
     loadingError: null,

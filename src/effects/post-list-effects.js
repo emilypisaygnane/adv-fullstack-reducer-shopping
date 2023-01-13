@@ -2,7 +2,7 @@ import {
   itemListLoadSuccessAction,
   itemListLoadStartAction,
   itemListLoadErrorAction,
-} from '..actions/item-list-actions';
+} from '../actions/item-list-actions';
 import { getShoppingListItems } from '../services/shopping-list-items';
 
 export const getItemsEffect = async (dispatch) => {

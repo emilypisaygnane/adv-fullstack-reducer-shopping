@@ -1,4 +1,4 @@
-export const itemListLoadSuccesAction = (itemList) => {
+export const itemListLoadSuccessAction = (itemList) => {
   return {
     type: 'item-list-load-success',
     itemList,
