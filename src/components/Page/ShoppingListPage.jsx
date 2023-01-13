@@ -1,3 +1,4 @@
+import ShoppingList from '../Shopping/ShoppingList.jsx';
 import ShoppingListForm from '../Shopping/ShoppingListForm.jsx';
 import { useContext, useEffect } from 'react';
 import { Context } from '../ListProvider.jsx';
@@ -13,13 +14,17 @@ export default function ShoppingListPage() {
   useEffect(() => {
     getItemsEffect(dispatch);
   }, []);
+
   const onBodyChanged = (body) => {
     dispatch(itemListCandidateBodyChange(body));
   };
+  
   const dispatchSeenChanged = (itemId, seen) => {
     dispatch(itemListSeenChangedAction(itemId, seen));
   };
   return <section>
+    <h1>My Shopping List</h1>
+
     <ShoppingListForm
       body={state.itemCandidateBody}
       onBodyChanged={onBodyChanged}
@@ -29,7 +34,16 @@ export default function ShoppingListPage() {
         dispatch(itemListCandidateBodyChange(''));
       }}
     />
-    <h1>My Shopping List</h1>
+
+    { state.loadingMode === 'Loading'
+      ? <span>Loading Posts!</span>
+      : <ShoppingList
+        itemList={state.itemList}
+        handleSeenChangedByItemId={(itemId, seen) => {
+          dispatchSeenChanged(itemId, seen);
+        }}
+      />
+    }
     
   </section>;
 }
