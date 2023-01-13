@@ -4,6 +4,6 @@ export default function ShoppingPost({ item, handleSeenChanged }) {
       handleSeenChanged(!item.seen);
     }}/>
     {item.id}
-    {item.body}
+    {item.items}
   </div>;
 }

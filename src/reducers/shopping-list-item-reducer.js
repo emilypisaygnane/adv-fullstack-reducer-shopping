@@ -9,7 +9,7 @@ export const initialState = () => {
 
 export const reducer = (state, action) => {
   switch(action.type) {
-    case 'item-list-load=start':
+    case 'item-list-load-start':
       return {
         ...state,
         loadingMode: 'loading',
@@ -32,7 +32,7 @@ export const reducer = (state, action) => {
     case 'item-list-candidate-body-changed':
       return {
         ...state,
-        postCandidateBody: action.body,
+        itemCandidateBody: action.body,
       };
 
     case 'item-list-seen-changed': {

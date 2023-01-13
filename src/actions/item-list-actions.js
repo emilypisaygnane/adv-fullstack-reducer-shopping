@@ -18,7 +18,7 @@ export const itemListLoadErrorAction = (error) => {
   };
 };
 
-export const itemListCandidateBodyChange = (body) => {
+export const itemListCandidateBodyChanged = (body) => {
   return {
     body,
     type: 'item-list-candidate-body-changed',

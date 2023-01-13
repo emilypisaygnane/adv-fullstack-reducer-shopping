@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react';
 import { Context } from '../ListProvider.jsx';
 import { createShoppingListItem } from '../../services/shopping-list-items.js';
 import { 
-  itemListCandidateBodyChange,
+  itemListCandidateBodyChanged,
   itemListSeenChangedAction,
 } from '../../actions/item-list-actions.js';
 import { getItemsEffect } from '../../effects/post-list-effects.js';
@@ -16,7 +16,7 @@ export default function ShoppingListPage() {
   }, []);
 
   const onBodyChanged = (body) => {
-    dispatch(itemListCandidateBodyChange(body));
+    dispatch(itemListCandidateBodyChanged(body));
   };
   
   const dispatchSeenChanged = (itemId, seen) => {
@@ -31,11 +31,11 @@ export default function ShoppingListPage() {
       onSubmit={async (body) => {
         await createShoppingListItem(body);
         getItemsEffect(dispatch);
-        dispatch(itemListCandidateBodyChange(''));
+        dispatch(itemListCandidateBodyChanged(''));
       }}
     />
 
-    { state.loadingMode === 'Loading'
+    { state.loadingMode === 'loading'
       ? <span>Loading Posts!</span>
       : <ShoppingList
         itemList={state.itemList}
