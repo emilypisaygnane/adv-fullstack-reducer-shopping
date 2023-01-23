@@ -29,7 +29,7 @@ export default function ShoppingListPage() {
       body={state.itemCandidateBody}
       onBodyChanged={onBodyChanged}
       onSubmit={async (body) => {
-        await createShoppingListItem(body);
+        await createShoppingListItem({ items: body });
         getItemsEffect(dispatch);
         dispatch(itemListCandidateBodyChanged(''));
       }}

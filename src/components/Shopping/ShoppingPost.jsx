@@ -3,7 +3,7 @@ export default function ShoppingPost({ item, handleSeenChanged }) {
     <input type="checkbox" value={item.seen} onChange={() => {
       handleSeenChanged(!item.seen);
     }}/>
-    {item.id}
+    {/* {item.id} */}
     {item.items}
   </div>;
 }
